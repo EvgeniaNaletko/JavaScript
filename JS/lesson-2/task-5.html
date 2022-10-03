@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+    <script>
+        "use strict";
+
+        /**
+              * Функция складывает два переданных числа.
+              * @param {number} num1 Первое число.
+              * @param {number} num2 Второе число.
+              * @returns {number} Вернет число, получившееся в результате сложения.
+              */
+        function getSum(num1, num2) {
+            return num1 + num2;
+        };
+
+        /**
+         * Функция вычитает из большего переданного числа меньшее. При их равестве возвращает 0.
+         * @param {number} num1 Первое число.
+         * @param {number} num2 Второе число.
+         * @returns {number} Вернет число, получившееся в результате вычитания.
+         */
+        function getDifference(num1, num2) {
+            if (num1 === num2) {
+                return 0;
+            } else if (num1 > num2) {
+                return num1 - num2;
+            } else {
+                return num2 - num1;
+            };
+        };
+
+        /**
+         * Функция перемножает два два переданных числа.
+         * @param {number} num1 Первое число.
+         * @param {number} num2 Второе число.
+         * @returns {number} Вернет число, получившееся в результате умножения.
+         */
+        function getMultiplication(num1, num2) {
+            return num1 * num2;
+        };
+
+        /**
+         * Функция делит два два переданных числа.
+         * @param {number} num1 Первое число.
+         * @param {number} num2 Второе число.
+         * @returns {number} Вернет число, получившееся в результате деления.
+         */
+        function getDivision(num1, num2) {
+            return num1 / num2;
+        };
+
+        /**
+         * Функция принимает два числа и математический символ 
+         * ("+", "-", "*" или "/"), проводит соответствующую операцию.
+         * @param {number} arg1 Первое число.
+         * @param {number} arg2 Второе число.
+         * @param {string} operation Математическое действие.
+         * @returns {number} Вернет число, получившееся в результате 
+         * математичекой операции.
+         */
+        function mathOperation(arg1, arg2, operation) {
+            if (operation === "+") {
+                return getSum(arg1, arg2);
+            } else if (operation === "-") {
+                return getDifference(arg1, arg2);
+            } else if (operation === "*") {
+                return getMultiplication(arg1, arg2);
+            } else if (operation === "/") {
+                return getDivision(arg1, arg2);
+            } else return NaN;
+        };
+
+        console.log(mathOperation(2, 4, "+")); // 6
+
+        console.log(mathOperation(4, 4, "-")); // 0
+        console.log(mathOperation(4, 6, "-")); // 2
+        console.log(mathOperation(6, 4, "-")); // 2
+
+        console.log(mathOperation(4, 5, "*")); // 20
+
+        console.log(mathOperation(8, 4, "/")); // 2
+
+        console.log(mathOperation(5, 6, ":)")) // NaN
+
+    </script>
+</body>
+
+</html>
