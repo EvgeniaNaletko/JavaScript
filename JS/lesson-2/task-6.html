@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+    <script>
+        "use strict";
+
+        function declinationOfNumber(count, one, two, five) {
+            let lastNumber = count % 10;
+            let secondNum = count % 100;
+
+            if (lastNumber === 1 && !(secondNum === 11)) {
+                return one;
+            } else if ((lastNumber > 1 && lastNumber < 5) && !(secondNum > 10 && secondNum < 20)) {
+                return two;
+            } else return five;
+        }
+
+        const applesNumber = 5;
+        const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+
+        console.log(`У меня есть ${applesNumber} ${word}.`);
+
+    </script>
+</body>
+
+</html>
